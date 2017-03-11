@@ -13,6 +13,10 @@
     <sound>sound\snd_store</sound>
     <sound>sound\snd_main_menu</sound>
     <sound>sound\snd_placement</sound>
+    <sound>sound\MainMenu</sound>
+    <sound>sound\snd_level_2</sound>
+    <sound>sound\snd_level_3</sound>
+    <sound>sound\snd_level_4</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_border</sprite>
@@ -76,6 +80,7 @@
         <sprite>sprites\spr_old_man_towel</sprite>
         <sprite>sprites\spr_pool_lady</sprite>
       </sprites>
+      <sprite>sprites\spr_nerd</sprite>
     </sprites>
     <sprites name="Workout Machines">
       <sprite>sprites\spr_bench_press</sprite>
@@ -102,12 +107,15 @@
       <sprite>sprites\spr_lollipop</sprite>
       <sprite>sprites\spr_lollipop_dumbell</sprite>
       <sprite>sprites\spr_towel</sprite>
+      <sprite>sprites\spr_CD</sprite>
+      <sprite>sprites\spr_music_player</sprite>
     </sprites>
     <sprites name="UI">
       <sprite>sprites\spr_arrow</sprite>
       <sprite>sprites\spr_inv</sprite>
       <sprite>sprites\spr_num</sprite>
       <sprite>sprites\spr_up_arrow</sprite>
+      <sprite>sprites\spr_z</sprite>
       <sprite>sprites\spr_ex</sprite>
       <sprite>sprites\spr_space</sprite>
       <sprite>sprites\spr_down_arrow</sprite>
@@ -118,6 +126,12 @@
       <sprite>sprites\spr_lock_screen</sprite>
       <sprite>sprites\spr_left_arrow</sprite>
     </sprites>
+    <sprites name="MainMenu">
+      <sprite>sprites\Credits_Button</sprite>
+      <sprite>sprites\Instruction_Button</sprite>
+      <sprite>sprites\Start_Button</sprite>
+    </sprites>
+    <sprite>sprites\locker_self</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\locker</background>
@@ -144,6 +158,9 @@
     <background>background\Wall_Template_new</background>
     <background>background\Water</background>
     <background>background\yellow_new</background>
+    <background>background\Credits</background>
+    <background>background\TitleCard</background>
+    <background>background\Instructions_back</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\path_dance_puzzle</path>
@@ -152,6 +169,7 @@
     <script>scripts\draw_sprites.gml</script>
     <script>scripts\distract_bro.gml</script>
     <script>scripts\scrp_select_char.gml</script>
+    <script>scripts\scrp_select_motto.gml</script>
     <script>scripts\scrp_movement.gml</script>
     <scripts name="Chat">
       <script>scripts\chat_box.gml</script>
@@ -171,13 +189,22 @@
       <script>scripts\scrp_lifeguard_bro_chat.gml</script>
       <script>scripts\scrp_puzzle_bro_chat.gml</script>
       <script>scripts\scrp_gym_mother_chat.gml</script>
+      <script>scripts\scrp_L3_word_puzzle_bro_chat.gml</script>
       <script>scripts\scrp_gym_father_chat.gml</script>
+      <script>scripts\scrp_quote_bro_1_chat.gml</script>
+      <script>scripts\scrp_quote_bro_2_chat.gml</script>
+      <script>scripts\scrp_quote_bro_3_chat.gml</script>
+      <script>scripts\scrp_quote_bro_4_chat.gml</script>
+      <script>scripts\scrp_quote_bro_5_chat.gml</script>
+      <script>scripts\scrp_quote_bro_6_chat.gml</script>
       <script>scripts\scrp_baby_bro_chat.gml</script>
       <script>scripts\scrp_broflex_bro_chat.gml</script>
       <script>scripts\scrp_nerds_chat.gml</script>
       <script>scripts\scrp_character_chat.gml</script>
       <script>scripts\scrp_desk_bro_chat.gml</script>
       <script>scripts\scrp_painter_chat.gml</script>
+      <script>scripts\scrp_brotien_salesman.gml</script>
+      <script>scripts\scrp_tmp_brobi1.gml</script>
     </scripts>
     <scripts name="Store">
       <script>scripts\scrp_shop_items.gml</script>
@@ -186,11 +213,11 @@
     </scripts>
     <scripts name="Minigame">
       <script>scripts\scrp_minigame.gml</script>
+      <script>scripts\scrp_minigame_2.gml</script>
       <script>scripts\scrp_minigame_3.gml</script>
       <script>scripts\scrp_minigame_bar.gml</script>
       <script>scripts\scrp_minigame_bar_2.gml</script>
       <script>scripts\scrp_minimage_bar_3.gml</script>
-      <script>scripts\scrp_minigame_2.gml</script>
     </scripts>
     <scripts name="Items and Inventory">
       <script>scripts\inventory.gml</script>
@@ -208,7 +235,11 @@
       <script>scripts\scrp_locker_puzzle.gml</script>
       <script>scripts\scrp_lock_check.gml</script>
       <script>scripts\scrp_tweak_puzzle_chat.gml</script>
+      <script>scripts\scrp_change_music.gml</script>
     </scripts>
+    <script>scripts\scr_menu.gml</script>
+    <script>scripts\scrp_throw_nerd.gml</script>
+    <script>scripts\scrp_nerd_workout.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_chat</font>
@@ -216,40 +247,65 @@
   <objects name="objects">
     <object>objects\obj_placeholder</object>
     <object>objects\obj_controller</object>
+    <object>objects\obj_music_control</object>
     <objects name="Bros">
       <object>objects\BroClone</object>
+      <object>objects\obj_brotien_salesman</object>
       <object>objects\obj_bro_1</object>
+      <object>objects\obj_quote_bro_3</object>
       <object>objects\obj_bro_2</object>
+      <object>objects\bro_service_desk</object>
+      <object>objects\obj_quote_bro_5</object>
+      <object>objects\obj_dad_bro</object>
       <object>objects\obj_bro_dancer</object>
       <object>objects\obj_bro_3</object>
+      <object>objects\obj_locker_bro</object>
+      <object>objects\obj_quote_bro_6</object>
+      <object>objects\obj_quote_bro_4</object>
+      <object>objects\obj_tanning_bro</object>
       <object>objects\obj_bro_4</object>
       <object>objects\obj_arm_bro</object>
+      <object>objects\obj_L3_word_puzzle_bro</object>
       <object>objects\obj_bro_temp</object>
+      <object>objects\obj_broflex_bro</object>
       <object>objects\obj_tweak</object>
       <object>objects\obj_leg_bro</object>
       <object>objects\obj_brobi</object>
       <object>objects\obj_fembro_1</object>
       <object>objects\obj_fembro_2</object>
+      <object>objects\obj_mom_bro</object>
       <object>objects\obj_fembro_3</object>
+      <object>objects\obj_quote_bro_1</object>
       <object>objects\obj_fembro_4</object>
+      <object>objects\obj_quote_bro_2</object>
       <object>objects\obj_old_man</object>
       <object>objects\obj_pool_lady</object>
       <object>objects\obj_bro_baby</object>
       <object>objects\obj_bro_life</object>
       <object>objects\obj_painter</object>
+      <object>objects\obj_nerd_1</object>
+      <object>objects\obj_nerd_2</object>
+      <object>objects\obj_nerd_3</object>
     </objects>
     <objects name="Items">
       <object>objects\obj_item</object>
       <object>objects\obj_block</object>
+      <object>objects\obj_brotien_stand</object>
       <object>objects\obj_keycard</object>
       <object>objects\obj_bro_coin</object>
       <object>objects\obj_roids</object>
       <object>objects\obj_coffee</object>
+      <object>objects\object75</object>
+      <object>objects\obj_lollipop_2</object>
+      <object>objects\obj_lollipop_1</object>
       <object>objects\obj_shake</object>
+      <object>objects\obj_brotienshake</object>
       <object>objects\obj_key</object>
       <object>objects\obj_towel</object>
       <object>objects\obj_button</object>
       <object>objects\obj_paint</object>
+      <object>objects\obj_CD</object>
+      <object>objects\obj_music_player</object>
     </objects>
     <objects name="Puzzle">
       <object>objects\obj_poster</object>
@@ -266,9 +322,16 @@
       <object>objects\obj_locker_combo</object>
       <object>objects\obj_lock_screen</object>
       <object>objects\obj_revolt</object>
+      <object>objects\obj_pool_up</object>
+      <object>objects\obj_pool_down</object>
+      <object>objects\obj_pool_left</object>
+      <object>objects\obj_pool_right</object>
+      <object>objects\obj_locker_puz</object>
       <object>objects\obj_lock_num_4</object>
+      <object>objects\locker_unblocked</object>
     </objects>
     <object>objects\obj_wall</object>
+    <object>objects\obj_locker_bro_walls</object>
     <object>objects\obj_gate</object>
     <object>objects\obj_door</object>
     <object>objects\obj_treadmill</object>
@@ -276,7 +339,13 @@
     <object>objects\obj_curl_rack</object>
     <objects name="UI">
       <object>objects\obj_arrow</object>
-      <object>objects\obj_next_level</object>
+      <object>objects\obj_tutorial_entrance</object>
+      <object>objects\obj_level_1_entrance</object>
+      <object>objects\obj_level_2_entrance</object>
+      <object>objects\obj_level_3_entrance</object>
+      <object>objects\obj_level_4_entrance</object>
+      <object>objects\obj_tutorial_flr_tele</object>
+      <object>objects\obj_flr_down_tele</object>
       <object>objects\obj_store</object>
       <object>objects\obj_text</object>
       <object>objects\obj_chat</object>
@@ -288,19 +357,37 @@
     <objects name="Minigame">
       <object>objects\obj_minigame</object>
       <object>objects\obj_minigame_2</object>
-      <object>objects\obj_minigmae_3</object>
+      <object>objects\obj_minigame_3</object>
+      <object>objects\obj_pool_mini</object>
     </objects>
+    <object>objects\credits_exit</object>
+    <object>objects\Credits_obj</object>
+    <object>objects\Instructions</object>
+    <object>objects\MenuSelect</object>
+    <object>objects\up_control</object>
+    <object>objects\Start</object>
+    <object>objects\down_control</object>
+    <object>objects\right_control</object>
+    <object>objects\left_control</object>
+    <object>objects\control_z</object>
+    <object>objects\interact_z</object>
+    <object>objects\control_x</object>
+    <object>objects\space_bar</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\Menu</room>
     <room>rooms\character_select</room>
+    <room>rooms\Tutorial</room>
     <room>rooms\Level_1</room>
     <room>rooms\Level_2</room>
     <room>rooms\Level_3</room>
     <room>rooms\Level_4</room>
-    <room>rooms\Tutorial</room>
+    <room>rooms\credits_rm</room>
+    <room>rooms\Instructions_rm</room>
     <room>rooms\Store_room</room>
-    <room>rooms\test_room</room>
     <room>rooms\room8</room>
+    <room>rooms\test_room</room>
+    <room>rooms\Overworld</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
